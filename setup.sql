@@ -630,45 +630,45 @@ INSERT INTO entry_logs (
     is_synced,
     created_at
 ) VALUES
--- Entry logs for Ahmed Khan (person-1) - Poonch
-('entry-1', 'req-001', 'person-1', 'Ahmed Khan', 'device-1', 'face', 'mobile_auto', 'in', 0.95, NOW() - INTERVAL '2 hours', 'https://example.com/images/entry-1.jpg', 'Regular entry through main gate', NULL, NULL, NULL, true, NOW() - INTERVAL '2 hours'),
-('entry-2', 'req-002', 'person-1', 'Ahmed Khan', 'device-1', 'face', 'mobile_auto', 'out', 0.92, NOW() - INTERVAL '1 hour', 'https://example.com/images/entry-2.jpg', 'Exit through main gate', 'CAR', 'JK01AB1234', 'Maruti Swift', true, NOW() - INTERVAL '1 hour'),
+-- Entry logs for Ahmed Khan (person-1) - Poonch (January 10, 2026)
+('entry-1', 'req-001', 'person-1', 'Ahmed Khan', 'device-1', 'face', 'mobile_auto', 'in', 0.95, '2026-01-10 08:30:00.000', 'https://example.com/images/entry-1.jpg', 'Regular entry through main gate', NULL, NULL, NULL, true, '2026-01-10 08:30:00.000'),
+('entry-2', 'req-002', 'person-1', 'Ahmed Khan', 'device-1', 'face', 'mobile_auto', 'out', 0.92, '2026-01-10 14:45:00.000', 'https://example.com/images/entry-2.jpg', 'Exit through main gate', 'CAR', 'JK01AB1234', 'Maruti Swift', true, '2026-01-10 14:45:00.000'),
 
--- Entry logs for Fatima Sheikh (person-2) - Rajouri (village-2)
-('entry-3', 'req-003', 'person-2', 'Fatima Sheikh', 'device-7', 'fingerprint', 'server_confirm', 'in', 0.88, NOW() - INTERVAL '3 hours', 'https://example.com/images/entry-3.jpg', 'Entry with fingerprint verification at Rajouri main entrance', NULL, NULL, NULL, true, NOW() - INTERVAL '3 hours'),
-('entry-4', 'req-004', 'person-2', 'Fatima Sheikh', 'device-7', 'fingerprint', 'server_confirm', 'out', 0.90, NOW() - INTERVAL '30 minutes', 'https://example.com/images/entry-4.jpg', 'Exit verified from Rajouri', NULL, NULL, NULL, true, NOW() - INTERVAL '30 minutes'),
+-- Entry logs for Fatima Sheikh (person-2) - Rajouri (village-2) (January 10, 2026)
+('entry-3', 'req-003', 'person-2', 'Fatima Sheikh', 'device-7', 'fingerprint', 'server_confirm', 'in', 0.88, '2026-01-10 09:15:00.000', 'https://example.com/images/entry-3.jpg', 'Entry with fingerprint verification at Rajouri main entrance', NULL, NULL, NULL, true, '2026-01-10 09:15:00.000'),
+('entry-4', 'req-004', 'person-2', 'Fatima Sheikh', 'device-7', 'fingerprint', 'server_confirm', 'out', 0.90, '2026-01-10 16:20:00.000', 'https://example.com/images/entry-4.jpg', 'Exit verified from Rajouri', NULL, NULL, NULL, true, '2026-01-10 16:20:00.000'),
 
--- Entry logs for Mohammad Ali (person-3) - Doda (village-3)
-('entry-5', 'req-005', 'person-3', 'Mohammad Ali', 'device-9', 'face', 'mobile_auto', 'in', 0.96, NOW() - INTERVAL '4 hours', 'https://example.com/images/entry-5.jpg', 'Entry with vehicle at Doda main gate', 'BIKE', 'JK02CD5678', 'Honda Activa', true, NOW() - INTERVAL '4 hours'),
-('entry-6', 'req-006', 'person-3', 'Mohammad Ali', 'device-9', 'face', 'mobile_auto', 'out', 0.94, NOW() - INTERVAL '2 hours', 'https://example.com/images/entry-6.jpg', 'Exit with same vehicle from Doda', 'BIKE', 'JK02CD5678', 'Honda Activa', true, NOW() - INTERVAL '2 hours'),
+-- Entry logs for Mohammad Ali (person-3) - Doda (village-3) (January 10, 2026)
+('entry-5', 'req-005', 'person-3', 'Mohammad Ali', 'device-9', 'face', 'mobile_auto', 'in', 0.96, '2026-01-10 10:00:00.000', 'https://example.com/images/entry-5.jpg', 'Entry with vehicle at Doda main gate', 'BIKE', 'JK02CD5678', 'Honda Activa', true, '2026-01-10 10:00:00.000'),
+('entry-6', 'req-006', 'person-3', 'Mohammad Ali', 'device-9', 'face', 'mobile_auto', 'out', 0.94, '2026-01-10 17:30:00.000', 'https://example.com/images/entry-6.jpg', 'Exit with same vehicle from Doda', 'BIKE', 'JK02CD5678', 'Honda Activa', true, '2026-01-10 17:30:00.000'),
 
--- Entry logs for Ayesha Begum (person-4) - Udhampur (village-4)
-('entry-7', 'req-007', 'person-4', 'Ayesha Begum', 'device-12', 'manual', 'manual', 'in', 0.85, NOW() - INTERVAL '5 hours', NULL, 'Manual entry by security guard at Udhampur', NULL, NULL, NULL, true, NOW() - INTERVAL '5 hours'),
-('entry-8', 'req-008', 'person-4', 'Ayesha Begum', 'device-12', 'face', 'mobile_auto', 'out', 0.91, NOW() - INTERVAL '1 hour 30 minutes', 'https://example.com/images/entry-8.jpg', 'Face recognition exit from Udhampur', NULL, NULL, NULL, true, NOW() - INTERVAL '1 hour 30 minutes'),
+-- Entry logs for Ayesha Begum (person-4) - Udhampur (village-4) (January 11, 2026)
+('entry-7', 'req-007', 'person-4', 'Ayesha Begum', 'device-12', 'manual', 'manual', 'in', 0.85, '2026-01-11 07:45:00.000', NULL, 'Manual entry by security guard at Udhampur', NULL, NULL, NULL, true, '2026-01-11 07:45:00.000'),
+('entry-8', 'req-008', 'person-4', 'Ayesha Begum', 'device-12', 'face', 'mobile_auto', 'out', 0.91, '2026-01-11 15:10:00.000', 'https://example.com/images/entry-8.jpg', 'Face recognition exit from Udhampur', NULL, NULL, NULL, true, '2026-01-11 15:10:00.000'),
 
--- Entry logs for Hassan Raza (person-5) - Baramulla (village-5)
-('entry-9', 'req-009', 'person-5', 'Hassan Raza', 'device-14', 'face', 'server_confirm', 'in', 0.93, NOW() - INTERVAL '6 hours', 'https://example.com/images/entry-9.jpg', 'Server confirmed entry at Baramulla main gate', 'TRUCK', 'JK03EF9012', 'Tata Ace', true, NOW() - INTERVAL '6 hours'),
-('entry-10', 'req-010', 'person-5', 'Hassan Raza', 'device-14', 'face', 'server_confirm', 'out', 0.89, NOW() - INTERVAL '45 minutes', 'https://example.com/images/entry-10.jpg', 'Exit with vehicle from Baramulla', 'TRUCK', 'JK03EF9012', 'Tata Ace', true, NOW() - INTERVAL '45 minutes'),
+-- Entry logs for Hassan Raza (person-5) - Baramulla (village-5) (January 11, 2026)
+('entry-9', 'req-009', 'person-5', 'Hassan Raza', 'device-14', 'face', 'server_confirm', 'in', 0.93, '2026-01-11 08:20:00.000', 'https://example.com/images/entry-9.jpg', 'Server confirmed entry at Baramulla main gate', 'TRUCK', 'JK03EF9012', 'Tata Ace', true, '2026-01-11 08:20:00.000'),
+('entry-10', 'req-010', 'person-5', 'Hassan Raza', 'device-14', 'face', 'server_confirm', 'out', 0.89, '2026-01-11 18:00:00.000', 'https://example.com/images/entry-10.jpg', 'Exit with vehicle from Baramulla', 'TRUCK', 'JK03EF9012', 'Tata Ace', true, '2026-01-11 18:00:00.000'),
 
--- Entry logs for Zainab Hussain (person-6) - Poonch (village-1)
-('entry-11', 'req-011', 'person-6', 'Zainab Hussain', 'device-2', 'fingerprint', 'mobile_auto', 'in', 0.87, NOW() - INTERVAL '7 hours', 'https://example.com/images/entry-11.jpg', 'Morning entry through Poonch back gate', NULL, NULL, NULL, true, NOW() - INTERVAL '7 hours'),
-('entry-12', 'req-012', 'person-6', 'Zainab Hussain', 'device-2', 'fingerprint', 'mobile_auto', 'out', 0.90, NOW() - INTERVAL '20 minutes', 'https://example.com/images/entry-12.jpg', 'Evening exit from Poonch', NULL, NULL, NULL, true, NOW() - INTERVAL '20 minutes'),
+-- Entry logs for Zainab Hussain (person-6) - Poonch (village-1) (January 11, 2026)
+('entry-11', 'req-011', 'person-6', 'Zainab Hussain', 'device-2', 'fingerprint', 'mobile_auto', 'in', 0.87, '2026-01-11 09:30:00.000', 'https://example.com/images/entry-11.jpg', 'Morning entry through Poonch back gate', NULL, NULL, NULL, true, '2026-01-11 09:30:00.000'),
+('entry-12', 'req-012', 'person-6', 'Zainab Hussain', 'device-2', 'fingerprint', 'mobile_auto', 'out', 0.90, '2026-01-11 19:15:00.000', 'https://example.com/images/entry-12.jpg', 'Evening exit from Poonch', NULL, NULL, NULL, true, '2026-01-11 19:15:00.000'),
 
--- Entry logs for Ibrahim Malik (person-7) - Rajouri (village-2)
-('entry-13', 'req-013', 'person-7', 'Ibrahim Malik', 'device-10', 'face', 'mobile_auto', 'in', 0.92, NOW() - INTERVAL '8 hours', 'https://example.com/images/entry-13.jpg', 'Early morning entry at Rajouri checkpoint', 'AUTO', 'JK04GH3456', 'Bajaj Auto', true, NOW() - INTERVAL '8 hours'),
-('entry-14', 'req-014', 'person-7', 'Ibrahim Malik', 'device-10', 'face', 'mobile_auto', 'out', 0.88, NOW() - INTERVAL '15 minutes', 'https://example.com/images/entry-14.jpg', 'Late evening exit from Rajouri', 'AUTO', 'JK04GH3456', 'Bajaj Auto', true, NOW() - INTERVAL '15 minutes'),
+-- Entry logs for Ibrahim Malik (person-7) - Rajouri (village-2) (January 12, 2026)
+('entry-13', 'req-013', 'person-7', 'Ibrahim Malik', 'device-10', 'face', 'mobile_auto', 'in', 0.92, '2026-01-12 06:00:00.000', 'https://example.com/images/entry-13.jpg', 'Early morning entry at Rajouri checkpoint', 'AUTO', 'JK04GH3456', 'Bajaj Auto', true, '2026-01-12 06:00:00.000'),
+('entry-14', 'req-014', 'person-7', 'Ibrahim Malik', 'device-10', 'face', 'mobile_auto', 'out', 0.88, '2026-01-12 20:30:00.000', 'https://example.com/images/entry-14.jpg', 'Late evening exit from Rajouri', 'AUTO', 'JK04GH3456', 'Bajaj Auto', true, '2026-01-12 20:30:00.000'),
 
--- Entry logs for Khadija Ansari (person-8) - Doda (village-3)
-('entry-15', 'req-015', 'person-8', 'Khadija Ansari', 'device-11', 'manual', 'manual', 'in', 0.80, NOW() - INTERVAL '9 hours', NULL, 'Manual entry - visitor at Doda north gate', NULL, NULL, NULL, true, NOW() - INTERVAL '9 hours'),
-('entry-16', 'req-016', 'person-8', 'Khadija Ansari', 'device-11', 'face', 'server_confirm', 'out', 0.94, NOW() - INTERVAL '10 minutes', 'https://example.com/images/entry-16.jpg', 'Face recognition verified exit from Doda', NULL, NULL, NULL, true, NOW() - INTERVAL '10 minutes'),
+-- Entry logs for Khadija Ansari (person-8) - Doda (village-3) (January 12, 2026)
+('entry-15', 'req-015', 'person-8', 'Khadija Ansari', 'device-11', 'manual', 'manual', 'in', 0.80, '2026-01-12 10:30:00.000', NULL, 'Manual entry - visitor at Doda north gate', NULL, NULL, NULL, true, '2026-01-12 10:30:00.000'),
+('entry-16', 'req-016', 'person-8', 'Khadija Ansari', 'device-11', 'face', 'server_confirm', 'out', 0.94, '2026-01-12 16:45:00.000', 'https://example.com/images/entry-16.jpg', 'Face recognition verified exit from Doda', NULL, NULL, NULL, true, '2026-01-12 16:45:00.000'),
 
--- Entry logs for Yusuf Qureshi (person-9) - Udhampur (village-4)
-('entry-17', 'req-017', 'person-9', 'Yusuf Qureshi', 'device-13', 'fingerprint', 'server_confirm', 'in', 0.91, NOW() - INTERVAL '10 hours', 'https://example.com/images/entry-17.jpg', 'Fingerprint verified entry at Udhampur', 'CAR', 'JK05IJ7890', 'Hyundai i20', true, NOW() - INTERVAL '10 hours'),
-('entry-18', 'req-018', 'person-9', 'Yusuf Qureshi', 'device-13', 'fingerprint', 'server_confirm', 'out', 0.93, NOW() - INTERVAL '5 minutes', 'https://example.com/images/entry-18.jpg', 'Verified exit from Udhampur', 'CAR', 'JK05IJ7890', 'Hyundai i20', true, NOW() - INTERVAL '5 minutes'),
+-- Entry logs for Yusuf Qureshi (person-9) - Udhampur (village-4) (January 12, 2026)
+('entry-17', 'req-017', 'person-9', 'Yusuf Qureshi', 'device-13', 'fingerprint', 'server_confirm', 'in', 0.91, '2026-01-12 11:00:00.000', 'https://example.com/images/entry-17.jpg', 'Fingerprint verified entry at Udhampur', 'CAR', 'JK05IJ7890', 'Hyundai i20', true, '2026-01-12 11:00:00.000'),
+('entry-18', 'req-018', 'person-9', 'Yusuf Qureshi', 'device-13', 'fingerprint', 'server_confirm', 'out', 0.93, '2026-01-12 17:20:00.000', 'https://example.com/images/entry-18.jpg', 'Verified exit from Udhampur', 'CAR', 'JK05IJ7890', 'Hyundai i20', true, '2026-01-12 17:20:00.000'),
 
--- Entry logs for Mariam Dar (person-10) - Baramulla (village-5)
-('entry-19', 'req-019', 'person-10', 'Mariam Dar', 'device-15', 'face', 'mobile_auto', 'in', 0.95, NOW() - INTERVAL '11 hours', 'https://example.com/images/entry-19.jpg', 'Entry with high confidence at Baramulla', NULL, NULL, NULL, true, NOW() - INTERVAL '11 hours'),
-('entry-20', 'req-020', 'person-10', 'Mariam Dar', 'device-15', 'face', 'mobile_auto', 'out', 0.97, NOW(), 'https://example.com/images/entry-20.jpg', 'Recent exit - high confidence match from Baramulla', NULL, NULL, NULL, true, NOW())
+-- Entry logs for Mariam Dar (person-10) - Baramulla (village-5) (January 12, 2026)
+('entry-19', 'req-019', 'person-10', 'Mariam Dar', 'device-15', 'face', 'mobile_auto', 'in', 0.95, '2026-01-12 12:15:00.000', 'https://example.com/images/entry-19.jpg', 'Entry with high confidence at Baramulla', NULL, NULL, NULL, true, '2026-01-12 12:15:00.000'),
+('entry-20', 'req-020', 'person-10', 'Mariam Dar', 'device-15', 'face', 'mobile_auto', 'out', 0.97, '2026-01-12 18:00:00.000', 'https://example.com/images/entry-20.jpg', 'Recent exit - high confidence match from Baramulla', NULL, NULL, NULL, true, '2026-01-12 18:00:00.000')
 ON CONFLICT (id) DO NOTHING;
 
 -- ============================================================================
