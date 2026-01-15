@@ -8,7 +8,7 @@ echo "==============================="
 
 BASE_DIR="./"
 REPO_URL="https://github.com/santhosh-pingala/seeker3-demo.git"
-REPO_DIR="$BASE_DIR/demo-repo"
+REPO_DIR="$BASE_DIR"
 
 # mkdir -p "$BASE_DIR"
 # cd "$BASE_DIR"

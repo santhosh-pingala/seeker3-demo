@@ -1,0 +1,92 @@
+services:
+  # Gateway Service - Main business logic service
+  gateway-service:
+    image: eduaregistry.azurecr.io/seeker3/gateway-service:latest
+    container_name: gateway-service
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/gate_security?sslmode=disable
+      REDIS_URL: redis://redis:6379
+      HTTP_PORT: 8081
+      FACE_RECOGNITION_ADDR: ""  # Optional: ML service address
+      FINGERPRINT_ADDR: ""        # Optional: ML service address
+    ports:
+      - "8081:8081"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8081/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Auth Service - Authentication and authorization service
+  auth-service:
+    image: eduaregistry.azurecr.io/seeker3/auth-service:latest
+    container_name: auth-service
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/gate_security?sslmode=disable
+      TRANSPORT: http
+      HTTP_PORT: 8080
+      GRPC_PORT: 50051
+      JWT_SECRET: ZjoHmh18dQqZKdAkNXQxsH2HeDpJ4WUc27Ay8KjeKSr9jWg8S
+      CA_CERT_PATH: ""            # Optional: Path to CA certificate
+      JWT_PRIVATE_KEY_PATH: ""    # Optional: Path to JWT private key
+      JWT_PUBLIC_KEY_PATH: ""     # Optional: Path to JWT public key
+    ports:
+      - "8080:8080"
+      - "50051:50051"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # PostgreSQL Database with pgvector extension
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: postgres-gateway
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: gate_security
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./setup.sql:/docker-entrypoint-initdb.d/01-setup.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Redis Cache and Message Broker
+  redis:
+    image: redis:7-alpine
+    container_name: redis-gateway
+    ports:
+      - "6380:6379"  # Using 6380 on host to avoid conflict with local Redis on 6379
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+volumes:
+  postgres_data:
+  redis_data:
