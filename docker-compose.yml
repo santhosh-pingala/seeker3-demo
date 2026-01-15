@@ -99,7 +99,7 @@ services:
     image: eduaregistry.azurecr.io/seeker3/seeker-admin-portal:latest
     container_name: seeker-admin-portal
     ports:
-      - "3000:3000"
+      - "3001:3000"
     environment:
       VITE_GATEWAY_API_URL: http://gateway-service:8081
     depends_on:
