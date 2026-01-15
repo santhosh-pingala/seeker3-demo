@@ -483,32 +483,32 @@ CREATE TRIGGER trigger_update_user_sessions_updated_at
 
 -- Insert dummy villages
 INSERT INTO villages (id, name, created_at, updated_at) VALUES
-('village-1', 'Test Village', NOW(), NOW()),
-('village-2', 'Sample Town', NOW(), NOW()),
-('village-3', 'Demo City', NOW(), NOW()),
-('village-4', 'Example Village', NOW(), NOW()),
-('village-5', 'Practice Town', NOW(), NOW())
+('village-1', 'Poonch', NOW(), NOW()),
+('village-2', 'Rajouri', NOW(), NOW()),
+('village-3', 'Doda', NOW(), NOW()),
+('village-4', 'Udhampur', NOW(), NOW()),
+('village-5', 'Baramulla', NOW(), NOW())
 ON CONFLICT (id) DO NOTHING;
 
 -- Insert test nodes (for entry log testing)
 -- Each village can have multiple nodes
 -- Creating nodes for all existing villages to ensure data sync
 INSERT INTO nodes (id, village_id, node_name, node_type, location_description, is_active, created_at, updated_at) VALUES
--- Nodes for village-1 (Test Village)
-('node-1', 'village-1', 'Main Gate', 'gate', 'Primary entrance to Test Village', true, NOW(), NOW()),
+-- Nodes for village-1 (Poonch)
+('node-1', 'village-1', 'Main Gate', 'gate', 'Primary entrance to Poonch', true, NOW(), NOW()),
 ('node-2', 'village-1', 'Back Gate', 'gate', 'Secondary entrance at the rear', true, NOW(), NOW()),
 ('node-3', 'village-1', 'Checkpoint 1', 'checkpoint', 'Internal checkpoint near residential area', true, NOW(), NOW()),
--- Nodes for village-2 (Sample Town)
-('node-4', 'village-2', 'Main Entrance', 'gate', 'Main entrance to Sample Town', true, NOW(), NOW()),
+-- Nodes for village-2 (Rajouri)
+('node-4', 'village-2', 'Main Entrance', 'gate', 'Main entrance to Rajouri', true, NOW(), NOW()),
 ('node-5', 'village-2', 'Side Gate', 'gate', 'Side entrance for vehicles', true, NOW(), NOW()),
 ('node-6', 'village-2', 'Checkpoint 2', 'checkpoint', 'Internal security checkpoint', true, NOW(), NOW()),
--- Nodes for village-3 (Demo City)
-('node-7', 'village-3', 'Main Gate', 'gate', 'Primary entrance to Demo City', true, NOW(), NOW()),
+-- Nodes for village-3 (Doda)
+('node-7', 'village-3', 'Main Gate', 'gate', 'Primary entrance to Doda', true, NOW(), NOW()),
 ('node-8', 'village-3', 'North Gate', 'gate', 'Northern entrance point', true, NOW(), NOW()),
--- Nodes for village-4 (Example Village)
-('node-9', 'village-4', 'Main Gate', 'gate', 'Main entrance to Example Village', true, NOW(), NOW()),
--- Nodes for village-5 (Practice Town)
-('node-10', 'village-5', 'Main Gate', 'gate', 'Main entrance to Practice Town', true, NOW(), NOW()),
+-- Nodes for village-4 (Udhampur)
+('node-9', 'village-4', 'Main Gate', 'gate', 'Main entrance to Udhampur', true, NOW(), NOW()),
+-- Nodes for village-5 (Baramulla)
+('node-10', 'village-5', 'Main Gate', 'gate', 'Main entrance to Baramulla', true, NOW(), NOW()),
 ('node-11', 'village-5', 'East Gate', 'gate', 'Eastern entrance point', true, NOW(), NOW())
 ON CONFLICT (id) DO NOTHING;
 
@@ -529,7 +529,7 @@ INSERT INTO devices (id, node_id, device_name, device_type, is_active, operator_
 -- Devices for node-5 (village-2 Side Gate)
 ('device-8', 'node-5', 'Side Gate Device', 'gate', true, 'Security Guard 4', NOW(), NOW(), NOW()),
 -- Devices for node-7 (village-3 Main Gate)
-('device-9', 'node-7', 'Demo City Main Gate', 'gate', true, 'Security Guard 5', NOW(), NOW(), NOW())
+('device-9', 'node-7', 'Doda Main Gate', 'gate', true, 'Security Guard 5', NOW(), NOW(), NOW())
 ON CONFLICT (id) DO UPDATE 
 SET node_id = EXCLUDED.node_id,
     device_name = EXCLUDED.device_name,
@@ -537,6 +537,62 @@ SET node_id = EXCLUDED.node_id,
     is_active = EXCLUDED.is_active,
     operator_name = EXCLUDED.operator_name,
     updated_at = NOW();
+
+-- ============================================================================
+-- STEP 5.5: Insert Sample Muslim Persons
+-- ============================================================================
+
+-- Insert sample Muslim persons for testing
+INSERT INTO persons (
+    id,
+    name,
+    phone,
+    first_name,
+    last_name,
+    person_type,
+    gender,
+    age,
+    religion,
+    village_id,
+    id_proof_type,
+    id_proof_number,
+    person_category,
+    address,
+    status,
+    version,
+    created_at,
+    updated_at
+) VALUES
+-- Person 1: Ahmed Khan from Poonch
+('person-1', 'Ahmed Khan', '+919876543210', 'Ahmed', 'Khan', 'resident', 'MALE', 35, 'ISLAM', 'village-1', 'AADHAR', '1234-5678-9012', 'RESIDENT', 'House No. 45, Main Street, Poonch', 'active', 0, NOW(), NOW()),
+
+-- Person 2: Fatima Sheikh from Rajouri
+('person-2', 'Fatima Sheikh', '+919876543211', 'Fatima', 'Sheikh', 'resident', 'FEMALE', 28, 'ISLAM', 'village-2', 'AADHAR', '1234-5678-9013', 'RESIDENT', 'House No. 12, Market Road, Rajouri', 'active', 0, NOW(), NOW()),
+
+-- Person 3: Mohammad Ali from Doda
+('person-3', 'Mohammad Ali', '+919876543212', 'Mohammad', 'Ali', 'resident', 'MALE', 42, 'ISLAM', 'village-3', 'AADHAR', '1234-5678-9014', 'RESIDENT', 'House No. 78, Residential Area, Doda', 'active', 0, NOW(), NOW()),
+
+-- Person 4: Ayesha Begum from Udhampur
+('person-4', 'Ayesha Begum', '+919876543213', 'Ayesha', 'Begum', 'resident', 'FEMALE', 31, 'ISLAM', 'village-4', 'AADHAR', '1234-5678-9015', 'RESIDENT', 'House No. 23, Colony Street, Udhampur', 'active', 0, NOW(), NOW()),
+
+-- Person 5: Hassan Raza from Baramulla
+('person-5', 'Hassan Raza', '+919876543214', 'Hassan', 'Raza', 'resident', 'MALE', 39, 'ISLAM', 'village-5', 'AADHAR', '1234-5678-9016', 'RESIDENT', 'House No. 56, Main Bazaar, Baramulla', 'active', 0, NOW(), NOW()),
+
+-- Person 6: Zainab Hussain from Poonch
+('person-6', 'Zainab Hussain', '+919876543215', 'Zainab', 'Hussain', 'resident', 'FEMALE', 26, 'ISLAM', 'village-1', 'AADHAR', '1234-5678-9017', 'RESIDENT', 'House No. 34, New Colony, Poonch', 'active', 0, NOW(), NOW()),
+
+-- Person 7: Ibrahim Malik from Rajouri
+('person-7', 'Ibrahim Malik', '+919876543216', 'Ibrahim', 'Malik', 'resident', 'MALE', 45, 'ISLAM', 'village-2', 'AADHAR', '1234-5678-9018', 'RESIDENT', 'House No. 67, Old Town, Rajouri', 'active', 0, NOW(), NOW()),
+
+-- Person 8: Khadija Ansari from Doda
+('person-8', 'Khadija Ansari', '+919876543217', 'Khadija', 'Ansari', 'resident', 'FEMALE', 33, 'ISLAM', 'village-3', 'AADHAR', '1234-5678-9019', 'RESIDENT', 'House No. 89, Hill View, Doda', 'active', 0, NOW(), NOW()),
+
+-- Person 9: Yusuf Qureshi from Udhampur
+('person-9', 'Yusuf Qureshi', '+919876543218', 'Yusuf', 'Qureshi', 'resident', 'MALE', 37, 'ISLAM', 'village-4', 'AADHAR', '1234-5678-9020', 'RESIDENT', 'House No. 11, Park Street, Udhampur', 'active', 0, NOW(), NOW()),
+
+-- Person 10: Mariam Dar from Baramulla
+('person-10', 'Mariam Dar', '+919876543219', 'Mariam', 'Dar', 'resident', 'FEMALE', 29, 'ISLAM', 'village-5', 'AADHAR', '1234-5678-9021', 'RESIDENT', 'House No. 90, River Side, Baramulla', 'active', 0, NOW(), NOW())
+ON CONFLICT (id) DO NOTHING;
 
 -- ============================================================================
 -- STEP 6: Auth Service Seed Data
