@@ -11,8 +11,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: gate_security
-    ports:
-      - "5432:5432"
+    # ports:
+    #   - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./setup.sql:/docker-entrypoint-initdb.d/01-setup.sql:ro
